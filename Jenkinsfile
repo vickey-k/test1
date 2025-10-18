@@ -4,36 +4,22 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Get code from GitHub
+                // Pull your code from Git
                 git branch: 'main', url: 'https://github.com/vickey-k/test1.git'
             }
         }
 
-        stage('Build') {
+        stage('Run Script') {
             steps {
-                echo 'Building the application...'
-                sh 'python3 setup.py build'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                sh 'pytest tests/'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
-                sh './deploy.sh'
+                echo 'Running test.py...'
+                sh 'python3 test.py'
             }
         }
     }
 
     post {
         always {
-            echo 'Pipeline finished!'
+            echo 'Pipeline completed!'
         }
     }
 }
