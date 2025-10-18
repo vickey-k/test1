@@ -13,6 +13,7 @@ pipeline {
             steps {
                 echo 'Running test.py...'
                 sh 'python3 test.py'
+		sh 'python3 prime.py'
             }
         }
     }
