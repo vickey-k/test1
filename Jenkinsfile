@@ -12,7 +12,7 @@ pipeline {
         stage('Run Script') {
             steps {
                 echo 'Running test.py...'
-                sh 'python3 prime.py'
+                sh 'python3 test3.py'
             }
         }
     }
